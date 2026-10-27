@@ -43,6 +43,12 @@ backup.json
 # 例外：release/ 下的发布说明与 APK 是要公开的，不属于用户数据备份
 !release/*.json
 
+# ===== 数据迁移导出（聊天记录 + 记忆 + 技能，含私人内容）=====
+# 由 tools/Export-LhagnetData.ps1 生成，绝不能提交
+lhagnet-data-*.json
+data/
+raw-*/
+
 # ===== 本地配置 =====
 .env
 .env.local
