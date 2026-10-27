@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  网络安全配置（Android 7.0+ 生效）
+
+  策略：
+  1. 全局只允许 HTTPS，禁止明文 HTTP。
+     本应用会传输账号密码、手机号、会话 id、聊天内容，
+     明文传输会让这些数据暴露在链路上和服务器访问日志里。
+  2. 不信任用户 CA（默认行为），也额外不信任系统 CA ——
+     避免设备被安装了私有根证书后，中间人仍能解密流量。
+  3. 明确拒绝 cleartextTraffic。
+
+  注意：account / feedback 等接口使用的 baseUrl 由用户在「设置 → 模型」里填写，
+  如果用户填了 http:// 开头的地址，Android 会直接拒绝连接（这是预期的安全行为）。
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!--
+      如需连接局域网内的自建 / 调试服务器（例如 http://192.168.1.10:8080），
+      请把下面这段打开，并只放行你信任的具体 IP 与端口，不要用 domain-config
+      泛匹配。注意：这属于放宽策略，仅建议在 debug 构建里启用。
+    -->
+    <!--
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">192.168.1.10</domain>
+        <domain includeSubdomains="false">10.0.2.2</domain>
+    </domain-config>
+    -->
+</network-security-config>

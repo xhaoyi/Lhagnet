@@ -1,0 +1,55 @@
+# ===== Android / 构建产物 =====
+*.aab
+*.ap_
+*.dex
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+build/
+out/
+.gradle/
+local.properties
+*.iml
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 说明：发布用的 APK 放在 release/ 下，需要入库（供 Releases 下载），
+# 因此上面不忽略 *.apk。若你不想把 APK 传上 GitHub，删掉下面这行即可。
+!release/*.apk
+
+# ===== 签名与密钥（绝对不要提交）=====
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+keystore.properties
+signing.properties
+
+# ===== 运行时产物 =====
+logs/
+*.log
+trace.log
+lhagnet.log
+/tmp/
+tmp/
+
+# ===== 备份导出（可能含手机号、任务记录等个人信息）=====
+lhagnet-backup-*.json
+*backup*.json
+backup.json
+# 例外：release/ 下的发布说明与 APK 是要公开的，不属于用户数据备份
+!release/*.json
+
+# ===== 本地配置 =====
+.env
+.env.local
+secrets.properties
+credentials.xml
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini

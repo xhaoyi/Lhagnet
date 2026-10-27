@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.lhagnet.app"
+    android:versionCode="1"
+    android:versionName="1.0.0">
+
+    <uses-sdk
+        android:minSdkVersion="26"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!--
+      注意：这里刻意不声明 QUERY_ALL_PACKAGES。
+      该权限属于 Google Play 政策敏感权限，且本应用只需要访问用户主动指定的少数 App，
+      应当改用 <queries> 白名单方式声明，避免申请过宽权限。
+    -->
+
+    <!--
+      网络安全配置：只允许 HTTPS。
+      账号密码、手机号、会话 id 都走这条链路，必须禁止明文 HTTP，
+      否则会出现在运营商 / 公共 Wi-Fi 的链路上以及服务器访问日志里。
+    -->
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/app_logo"
+        android:roundIcon="@drawable/app_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="false">
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".AgentService"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="dataSync" />
+
+        <service
+            android:name=".ScreenCapture"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="mediaProjection" />
+
+        <receiver
+            android:name=".SchedReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="io.lhagnet.app.SCHED_FIRE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+          无障碍服务：exported 必须为 true，否则系统无法绑定该服务。
+          安全性由 android:permission="BIND_ACCESSIBILITY_SERVICE" 保证 ——
+          只有系统（设置界面）能绑定，第三方 App 无法直接调用。
+          能力面已通过 accessibility_service_config.xml 收敛。
+        -->
+        <service
+            android:name=".LhA11y"
+            android:exported="true"
+            android:label="@string/a11y_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+    </application>
+</manifest>

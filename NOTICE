@@ -1,0 +1,36 @@
+# NOTICE
+
+风车 (Fengche) · 纯 UI 层备份
+Copyright (c) 2026 风车 (Fengche) contributors
+
+本仓库依据 MIT License 发布，见 [LICENSE](LICENSE)。
+
+---
+
+## 本仓库包含什么
+
+**仅 UI 层**：`AndroidManifest.xml`、`res/`、`java/` 下与界面相关的 8 个 Java 文件。
+
+## 本仓库不包含什么
+
+以下内容**故意未包含**，因为它们属于非 UI 部分，或涉及安全 / 隐私考量：
+
+| 未包含 | 原因 |
+|---|---|
+| `AgentService` / `ScreenCapture` / `LhA11y` / `SchedReceiver` / `BootReceiver` 的实现 | 业务层，非 UI 备份范围 |
+| `Prefs` / `Net` / `LlmClient` / `Providers` / `SkillsStore` / `MemoryStore` / `SchedStore` / `Scheduler` / `SkillForge` / `TimeParse` / `Backup` / `DeviceInfo` / `SelfTest` | 基础设施与业务层，非 UI 备份范围 |
+| 后端服务器地址（`Prefs.SERVER`） | 生产环境内部地址 |
+| `Prefs.hashPwd()` 实现 | 凭证哈希算法属于安全敏感实现 |
+| 任何 API Key / Token / 私钥 | 全部为运行时用户输入，本就无硬编码值 |
+| 真实用户手机号 / 用户名 / 邮箱 | 隐私数据 |
+| 完整可编译工程与全量备份 | 不在本仓库范围内 |
+
+## 商标
+
+"风车" 名称及相关标识的权利归各自权利人所有。本仓库为技术参考用途，
+不构成对任何商标的授权或背书。
+
+## 第三方组件
+
+本 UI 层**不引入任何第三方依赖**，仅使用 Android 平台 API 与 `org.json`。
+因此不涉及第三方许可证的合规义务。

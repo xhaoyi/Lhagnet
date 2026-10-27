@@ -1,0 +1,1684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1014">
+
+    <LinearLayout
+        android:id="@+id/mainColumn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ==================== 顶栏：汉堡菜单 + 三个状态灯 + 明暗切换 ==================== -->
+        <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="#14181F"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="6dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:id="@+id/btnMenu"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:gravity="center"
+                android:text="☰"
+                android:textSize="19sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/chipHand"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:gravity="center"
+                android:minWidth="46dp"
+                android:paddingLeft="11dp"
+                android:paddingRight="11dp"
+                android:text="● 手"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/chipEye"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginLeft="7dp"
+                android:gravity="center"
+                android:minWidth="46dp"
+                android:paddingLeft="11dp"
+                android:paddingRight="11dp"
+                android:text="● 眼"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/chipBrain"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginLeft="7dp"
+                android:gravity="center"
+                android:minWidth="46dp"
+                android:paddingLeft="11dp"
+                android:paddingRight="11dp"
+                android:text="● 模"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/btnTheme"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="6dp"
+                android:gravity="center"
+                android:text="☀"
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/topDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2A313C" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- ==================== 聊天 ==================== -->
+            <LinearLayout
+                android:id="@+id/pageChat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="⚠️ 通知被系统关闭：任务一切到后台就会被杀掉，点这里去开启"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <ListView
+                    android:id="@+id/listChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:cacheColorHint="#00000000"
+                    android:clipToPadding="false"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="8dp"
+                    android:scrollbars="none"
+                    android:stackFromBottom="true" />
+
+                <TextView
+                    android:id="@+id/tvThink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginBottom="6dp"
+                    android:textColor="#9AA4B2"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvAttach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="#7C9CFF"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/inputRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="#1A1F27"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+
+                    <TextView
+                        android:id="@+id/btnPlus"
+                        android:layout_width="34dp"
+                        android:layout_height="42dp"
+                        android:contentDescription="添加图片或文件"
+                        android:gravity="center"
+                        android:text="＋"
+                        android:textColor="#9AA4B2"
+                        android:textSize="22sp" />
+
+                    <EditText
+                        android:id="@+id/etInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:hint="给风车说一句话…"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5"
+                        android:minHeight="38dp"
+                        android:minLines="1"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="9dp"
+                        android:paddingBottom="9dp"
+                        android:textColor="#E9EDF2"
+                        android:textColorHint="#6D7885"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/btnSend"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:contentDescription="运行任务"
+                        android:padding="11dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_send" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ==================== 技能 ==================== -->
+            <LinearLayout
+                android:id="@+id/pageSkills"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvSkillsHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="10dp"
+                    android:text="App 操作手册 · 点条目可编辑 · 自建优先于内置"
+                    android:textColor="#9AA4B2"
+                    android:textSize="12sp" />
+
+                <ListView
+                    android:id="@+id/listSkills"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:cacheColorHint="#00000000"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dp"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="14dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnNewSkill"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="＋ 新建"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btnDelSkill"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="🗑 删除"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btnBackupSkill"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="💾 备份"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btnRestoreSkill"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="↺ 恢复备份"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ==================== 记忆 ==================== -->
+            <LinearLayout
+                android:id="@+id/pageMemory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/cardMem"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#1A1F27"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <ListView
+                        android:id="@+id/listMemory"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:cacheColorHint="#00000000"
+                        android:divider="#00000000"
+                        android:dividerHeight="0dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnRefreshMem"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="刷新"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/btnClearMem"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="清空记忆"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnExportMem"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="导出备份（记忆+技能）"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/btnImportMem"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="导入备份"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ==================== 语言 ==================== -->
+            <LinearLayout
+                android:id="@+id/pageLang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="18dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvLangTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="语言 / Language"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLangHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="选一种界面语言，点一下立即生效。任务的执行日志保持中文。"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:id="@+id/boxLang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- ==================== 字体 ==================== -->
+            <LinearLayout
+                android:id="@+id/pageFont"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="18dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvFontTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="字体大小"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvFontHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="调的是整个 App 的字号，点一下立即生效。"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:id="@+id/boxFont"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- ==================== 定时任务 ==================== -->
+            <ScrollView
+                android:id="@+id/pageSched"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/cardSched"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#1A1F27"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tvSecSched"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="新建任务（到点自己跑，不占用聊天）"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etSchedGoal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="top|start"
+                            android:hint="到点要做什么，例如：打开抖音，刷10个视频后退出"
+                            android:inputType="textMultiLine"
+                            android:minLines="2"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/etSchedMin"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="几分钟后执行（可填 0.5）"
+                                android:inputType="numberDecimal"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/btnSchedAdd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="42dp"
+                                android:layout_marginLeft="8dp"
+                                android:gravity="center"
+                                android:paddingLeft="18dp"
+                                android:paddingRight="18dp"
+                                android:text="添加"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <CheckBox
+                            android:id="@+id/cbSchedDaily"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="每天同一时间重复"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvSchedHint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/boxSched"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="vertical" />
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- ==================== 用户管理 ==================== -->
+            <ScrollView
+                android:id="@+id/pageUser"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/cardUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#1A1F27"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tvSecUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="账号资料（只存在这台手机上）"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/lbUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:text="用户名"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/etUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="怎么称呼你，例如 老王"
+                            android:inputType="text"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tvUserNameTip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textSize="11sp" />
+
+
+                        <TextView
+                            android:id="@+id/tvUserHint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:id="@+id/rowChgPwd"
+                            android:layout_width="match_parent"
+                            android:layout_height="46dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/lbChgPwd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="修改密码"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvChgPwdState"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="旧密码 + 新密码"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvChgPwdArrow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="›"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnSaveUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="14dp"
+                            android:gravity="center"
+                            android:text="保存资料"
+                            android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvVersion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="当前版本 v1.0.0"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvCheckUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:text="检查更新 ▸"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnLogout"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="退出登录"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- ==================== 设置 ==================== -->
+            <ScrollView
+                android:id="@+id/pageConfig"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="22dp">
+
+                    <LinearLayout
+                        android:id="@+id/cardTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#1A1F27"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="14dp">
+
+                        <TextView
+                            android:id="@+id/tvThemeLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="外观"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <Spinner
+                            android:id="@+id/spTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="120dp"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+                    <!-- 聊天发送模式：插话发送 / 排队发送 -->
+                    <LinearLayout
+                        android:id="@+id/cardSendMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#1A1F27"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="14dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="聊天发送"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvSendMode"
+                            android:minWidth="120dp"
+                            android:gravity="end|center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:text="排队发送"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardPerm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#1A1F27"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tvSecPerm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="权限与能力"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPermA11y"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/btnPermA11y"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="① 开启无障碍（手）"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvPermShot"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/btnPermShot"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="② 授权截图（眼）"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvPermOverlay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/btnPermOverlay"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="③ 授权悬浮窗（下单前确认）"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvPermNotif"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/btnPermNotif"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="④ 允许通知（关闭会导致后台被杀）"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvPermBattery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/btnPermBattery"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="⑤ 后台保活（忽略电池优化）"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardModel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="#1A1F27"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/rowModelToggle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp">
+
+                            <TextView
+                                android:id="@+id/tvSecModel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="模型"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvModelState"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvModelArrow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="▸ 展开"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/boxModel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                        <Spinner
+                            android:id="@+id/spProvider"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvProviderHint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/btnProviderSignup"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="去官网注册 / 拿 API Key"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/etBaseUrl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="baseURL"
+                            android:inputType="textUri"
+                            android:textColor="#E9EDF2"
+                            android:textColorHint="#6D7885"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/etApiKey"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="API Key"
+                            android:inputType="textPassword"
+                            android:textColor="#E9EDF2"
+                            android:textColorHint="#6D7885"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <Spinner
+                                android:id="@+id/spModel"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/btnFetchModels"
+                                android:layout_width="wrap_content"
+                                android:layout_height="38dp"
+                                android:layout_marginLeft="8dp"
+                                android:gravity="center"
+                                android:minWidth="76dp"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:text="拉取列表"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <CheckBox
+                            android:id="@+id/cbVision"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="该模型支持看图"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/btnTestModel"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="测试连接"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/btnSaveModel"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="保存"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardSafety"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="#1A1F27"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tvSecSafety"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="安全"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etMaxAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="单笔金额上限（元）"
+                            android:inputType="numberDecimal"
+                            android:textColor="#E9EDF2"
+                            android:textColorHint="#6D7885"
+                            android:textSize="13sp" />
+
+                        <CheckBox
+                            android:id="@+id/cbAutoPay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="允许自动支付（强烈不建议）"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/btnSaveSafety"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="保存安全设置"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvLogPath"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:lineSpacingExtra="2dp"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- ==================== 登录（首次进 App 先登录） ==================== -->
+    <LinearLayout
+        android:id="@+id/loginLayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0F1218"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="28dp"
+        android:paddingRight="28dp"
+        android:paddingTop="90dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvLoginBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="风车"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvLoginSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="登录后开始用"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/etLoginPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:hint="手机号"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etLoginPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码（至少 4 位）"
+            android:inputType="textPassword"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/rowAgree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cbAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp" />
+
+            <TextView
+                android:id="@+id/tvAgree"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:lineSpacingExtra="2dp"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:text="登录"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvLoginRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="注册"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvLoginForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:padding="10dp"
+                android:text="忘记密码"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ==================== 注册（独立一屏） ==================== -->
+    <ScrollView
+        android:id="@+id/registerLayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0F1218"
+        android:fillViewport="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="28dp"
+            android:paddingRight="28dp"
+            android:paddingTop="70dp"
+            android:paddingBottom="40dp">
+
+            <TextView
+                android:id="@+id/tvRgBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风车"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvRgSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="注册新账号"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/etRgPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:hint="手机号（11 位）"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etRgCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="6 位验证码"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/btnRgCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:text="获取验证码"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etRgPwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="设置密码（至少 4 位）"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etRgPwd2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="再输一次密码"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etRgName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="用户名（可选，注册后一个月只能改一次）"
+                android:inputType="text"
+                android:maxLength="20"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="找回密码问题（忘了密码时用来找回，问题和答案都可以自定义）"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etRgQ1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:hint="问题1"
+                android:inputType="text"
+                android:maxLength="40"
+                android:text="你的爱好是什么？"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etRgA1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="答案1（必填）"
+                android:inputType="text"
+                android:maxLength="40"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etRgQ2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:hint="问题2"
+                android:inputType="text"
+                android:maxLength="40"
+                android:text="你的偶像是谁？"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etRgA2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="答案2（必填）"
+                android:inputType="text"
+                android:maxLength="40"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/rowAgreeReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbAgreeReg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp" />
+
+                <TextView
+                    android:id="@+id/tvAgreeReg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:lineSpacingExtra="2dp"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnRgSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="注册并登录"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvRgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:padding="10dp"
+                android:text="已有账号？返回登录"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ==================== 抽屉（汉堡菜单） ==================== -->
+    <FrameLayout
+        android:id="@+id/drawerLayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/drawerScrim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#99000000" />
+
+        <LinearLayout
+            android:id="@+id/drawerPanel"
+            android:layout_width="264dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="#14181F"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/drawerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="22dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="16dp"
+                android:text="风车"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/tabChat"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icChat"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_chat" />
+
+                <TextView
+                    android:id="@+id/lbChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="聊天"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabSkills"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icSkills"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_skills" />
+
+                <TextView
+                    android:id="@+id/lbSkills"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="技能"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabMemory"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icMemory"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_memory" />
+
+                <TextView
+                    android:id="@+id/lbMemory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="记忆"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabLang"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icLang"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_lang" />
+
+                <TextView
+                    android:id="@+id/lbLang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="语言"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabFont"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icFont"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_font" />
+
+                <TextView
+                    android:id="@+id/lbFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="字体"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabSched"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icSched"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_sched" />
+
+                <TextView
+                    android:id="@+id/lbSched"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="任务"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabConfig"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icConfig"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_config" />
+
+                <TextView
+                    android:id="@+id/lbConfig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="设置"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icFeedback"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_feedback" />
+
+                <TextView
+                    android:id="@+id/lbFeedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="反馈"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+
+            <View
+                android:id="@+id/drawerDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#2A313C" />
+
+            <LinearLayout
+                android:id="@+id/btnClearChat"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icClearChat"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_trash" />
+
+                <TextView
+                    android:id="@+id/lbClearChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="清空聊天"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/tabUser"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/icUser"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_user" />
+
+                <TextView
+                    android:id="@+id/lbUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="用户"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

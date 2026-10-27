@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">风车</string>
+    <string name="app_name_beta">风车内测</string>
+    <string name="a11y_label">风车</string>
+    <string name="a11y_desc">风车 用无障碍服务读取屏幕控件并执行点击/输入，代替你操作其他 App。数据只在本机处理，不采集隐私。</string>
+</resources>
