@@ -6,7 +6,7 @@ Android 辅助操作 App —— 用无障碍服务读取屏幕控件并执行点
 
 ## 下载
 
-- [风车-v1.0.0.apk](https://github.com/xhaoyi/Lhagnet/releases/download/v1.0.0/风车-v1.0.0.apk)
+- [fengche-v1.0.0.apk](https://github.com/xhaoyi/Lhagnet/releases/download/v1.0.0/fengche-v1.0.0.apk)
 
 SHA-256：
 

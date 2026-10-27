@@ -6,7 +6,7 @@
 
 最新版本：[**风车 v1.0.0**](https://github.com/xhaoyi/Lhagnet/releases/latest)
 
-- APK 直接下载：<https://github.com/xhaoyi/Lhagnet/releases/download/v1.0.0/风车-v1.0.0.apk>
+- APK 直接下载：<https://github.com/xhaoyi/Lhagnet/releases/download/v1.0.0/fengche-v1.0.0.apk>
 - SHA-256：`2F9C474F126C0D1DAEE9183EB9B55BF119873532921EB184ED71D1F107C00C58`
 - 安装步骤与系统要求见 [release/NOTES-v1.0.0.md](release/NOTES-v1.0.0.md)
 
