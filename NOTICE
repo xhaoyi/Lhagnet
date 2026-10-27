@@ -1,6 +1,6 @@
 # NOTICE
 
-风车 (Fengche) · 纯 UI 层备份
+风车 (Fengche) · Android 个人自动化 AI 助理
 Copyright (c) 2026 风车 (Fengche) contributors
 
 本仓库依据 MIT License 发布，见 [LICENSE](LICENSE)。
@@ -10,6 +10,9 @@ Copyright (c) 2026 风车 (Fengche) contributors
 ## 本仓库包含什么
 
 **仅 UI 层**：`AndroidManifest.xml`、`res/`、`java/` 下与界面相关的 8 个 Java 文件。
+
+产品定位：运行在安卓手机上的本地 + 云端协同 AI 助手，基于自然语言理解、界面识别、
+自动化操作能力，代替人操作手机内各类 App —— 用户只用提需求，AI 自动完成整套流程。
 
 ## 本仓库不包含什么
 
