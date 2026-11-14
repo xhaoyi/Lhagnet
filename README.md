@@ -6,11 +6,13 @@
 
 ## 📦 下载
 
-最新版本：[**风车 v1.0.0**](https://github.com/xhaoyi/Lhagnet/releases/latest)
+最新版本：[**风车 v1.0.8**](https://github.com/xhaoyi/Lhagnet/releases/latest)
 
-- APK 直接下载：<https://github.com/xhaoyi/Lhagnet/releases/download/v1.0.0/fengche-v1.0.0.apk>
-- SHA-256：`2F9C474F126C0D1DAEE9183EB9B55BF119873532921EB184ED71D1F107C00C58`
-- 安装步骤与系统要求见 [release/NOTES-v1.0.0.md](release/NOTES-v1.0.0.md)
+- APK 直接下载：<https://github.com/xhaoyi/Lhagnet/releases/download/v1.0.8/fengche-v1.0.8-arm64.apk>（32.4 MB · arm64-v8a · Android 10+）
+- SHA-256：`4ED37A9D51CC601D89F19E82EB34D780E0515E1243A8FE7710E333F9F5ED1CBD`
+- 安装步骤与系统要求见 [release/NOTES-v1.0.8.md](release/NOTES-v1.0.8.md)
+
+历史版本：[v1.0.0](https://github.com/xhaoyi/Lhagnet/releases/tag/v1.0.0)（仅界面备份包，已被 v1.0.8 取代）
 
 ## 核心能力清单
 
